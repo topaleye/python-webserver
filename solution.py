@@ -4,23 +4,13 @@ from socket import *
 # In order to terminate the program
 import sys
 
-HEADER = 64
-FORMAT = 'utf-8'
 SERVER = gethostbyname(gethostname())
-
-
-def handle_client(conn, addr):
-    connected = True
-
-    while connected:
-        msg = conn.recv()
-
 
 def webServer(port=13331):
     serverSocket = socket(AF_INET, SOCK_STREAM)
 
     # Prepare a server socket
-    serverSocket.bind((SERVER, port))
+    serverSocket.bind(('', port))
 
     # Fill in start
     serverSocket.listen()
